@@ -3,7 +3,7 @@ muban.首图2.二级.title = 'h1&&Text;.data:eq(0)&&Text'
 muban.首图2.二级.desc = '.data.hidden-xs&&Text;;;.data:eq(1)&&Text;.data:eq(4)&&Text'
 muban.首图2.二级.content = '.detail-content&&Text'
 var rule = {
-	title:'LIBVIO',
+	title:'libvio',
 	模板:'首图2',
 	host:'https://www.libvio.me',
 	// host:'https://libvio.app',
