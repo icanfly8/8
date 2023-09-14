@@ -1,5 +1,5 @@
 var rule = {
-	title:'6v',
+	title:'6V电影',
 	host:'http://www.xb6v.com',
 	homeUrl:'/',
 	url: '/fyclass/index_fypage.html?',
