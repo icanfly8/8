@@ -1,4 +1,2 @@
-#电视
-../live/live.txt
 #YanG
 https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u
