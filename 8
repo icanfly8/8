@@ -6,8 +6,8 @@
 ],
 "sites":[
 {"key":"search","name":"搜索","type":3,"api":"csp_DouDou"},
-{"key":"jp","name":"荐片","type":4,"api":"http://home.jundie.top:9520/spider/csp_JP"},
-{"key":"6v","name":"6V","type":3,"api":"csp_SixV","ext":"http://www.xb6v.com/"},
+{"key":"jp","name":"荐片","type":4,"api":"http://home.jundie.top:9520/spider/csp_JP","timeout":30},
+{"key":"6v","name":"6V","type":3,"api":"csp_SixV","ext":"http://www.xb6v.com/","timeout":30},
 {"key":"czzy","name":"厂长","type":3,"api":"csp_Czsapp"},
 {"key":"ddys","name":"低端","type":3,"api":"csp_Ddrk"},
 {"key":"libvio","name":"利播","type":3,"api":"csp_Libvio","ext":"https://www.libvio.pro/"},
@@ -21,21 +21,21 @@
 {"key":"sn","name":"索尼资源","type":1,"api":"https://suoniapi.com/api.php/provide/vod"},
 {"key":"kf","name":"快帆资源","type":1,"api":"https://api.kuaifan.tv/api.php/provide/vod"},
 
-{"key":"drpy_search","name":"搜索丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/search.js"},
-{"key":"drpy_jp","name":"荐片丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/jp.js"},
-{"key":"drpy_clx","name":"磁力熊丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/clx.js"},
-{"key":"drpy_6v","name":"6V丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/6v.js"},
-{"key":"drpy_mp4","name":"MP4丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/mp4.js"},
-{"key":"drpy_kuba","name":"酷吧丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/kuba.js"},
-{"key":"drpy_czzy","name":"厂长丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/czzy.js"},
-{"key":"drpy_ddys","name":"低端丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/ddys.js"},
-{"key":"drpy_libvio","name":"利播丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/libvio.js"},
-{"key":"drpy_zxzj","name":"在线丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/zxzj.js"},
-{"key":"drpy_lz","name":"量子丨DRPY","type":3,"api":"./lib/drpy2.min.js","ext":"./js/lz.js"},
+{"key":"drpy_search","name":"搜索┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/search.js"},
+{"key":"drpy_jp","name":"荐片┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/jp.js","timeout":30},
+{"key":"drpy_clx","name":"磁力熊┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/clx.js","timeout":30},
+{"key":"drpy_6v","name":"6V┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/6v.js","timeout":30},
+{"key":"drpy_mp4","name":"MP4┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/mp4.js","timeout":30},
+{"key":"drpy_kuba","name":"酷吧┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/kuba.js","timeout":30},
+{"key":"drpy_czzy","name":"厂长┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/czzy.js"},
+{"key":"drpy_ddys","name":"低端┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/ddys.js"},
+{"key":"drpy_libvio","name":"利播┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/libvio.js"},
+{"key":"drpy_zxzj","name":"在线┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/zxzj.js"},
+{"key":"drpy_lz","name":"量子┃drpy","type":3,"api":"./lib/drpy2.min.js","ext":"./js/lz.js"},
 
-{"key":"lf_search","name":"搜索丨LF","type":3,"api":"./lib/lf_search.min.js"},
-{"key":"lf_p2p","name":"磁力丨LF","type":3,"api":"./lib/lf_p2p.min.js","ext":"18+"},
-{"key":"lf_live","name":"直播丨LF","type":3,"api":"./lib/lf_live.min.js","ext":"./txt/lf_live.txt"}
+{"key":"lf_search","name":"搜索┃lf","type":3,"api":"./lib/lf_search.min.js"},
+{"key":"lf_p2p","name":"磁力┃lf","type":3,"api":"./lib/lf_p2p.min.js"},
+{"key":"lf_live","name":"直播┃lf","type":3,"api":"./lib/lf_live.min.js","ext":"./txt/lf_live.txt"}
 ],
-"rules":[{"name":"lz","hosts":["vip.lz","hd.lz","v.cdnlz"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.433333,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]},{"name":"ff","hosts":["vip.ffzy","hd.ffzy"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.666667,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]},{"name":"bf","hosts":["bfzy","s5.bfzycdn"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:3,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]}]
+"rules":[{"name":"lz","hosts":["vip.lz","hd.lz","v.cdnlz"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.433333,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]},{"name":"ff","hosts":["vip.ffzy","hd.ffzy"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.666667,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]},{"name":"bf","hosts":["bfzy","s5.bfzycdn"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:3,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]},{"name":"cl","hosts":["magnet"],"regex":["更多"]}]
 }
