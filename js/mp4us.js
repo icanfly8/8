@@ -93,7 +93,7 @@ if (rule_fetch_params.headers.Cookie.startsWith("http")){
 };
 log('mp4us seach cookie>>>>>>>>>>>>>' + rule_fetch_params.headers.Cookie);
 let _fetch_params = JSON.parse(JSON.stringify(rule_fetch_params));
-let search_html = request( HOST + '/search/' + encodeURIComponent(KEY) + '-1.html', _fetch_params)
+let search_html = request( HOST + '/search/' + encodeURIComponent(KEY) + '-1.html', _fetch_params);
 let d=[];
 let dlist = pdfa(search_html, 'div#list_all li');
 dlist.forEach(function(it){
