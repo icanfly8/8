@@ -83,10 +83,8 @@ try{
 	vodUrls.push(html.match(/var GvodUrls5 *= *"([^"]*)"/)[1]);
 }catch(e){
 }
-let index=1;
 vodUrls.forEach(function (it) {
-	TABS.push("磁力"+index);
-	index = index + 1;
+	TABS.push("磁力");
 });
 log('kuba TABS >>>>>>>>>>>>>>>>>>' + TABS);
 `,
@@ -95,7 +93,6 @@ log(TABS);
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 LISTS = [];
 let vodUrls=[];
-//log("kuba html>>>>>>>>>>>>>>>>>>>>>>" + html);
 try{
 	vodUrls.push(html.match(/var GvodUrls1 *= *"([^"]*)"/)[1]);
 	vodUrls.push(html.match(/var GvodUrls2 *= *"([^"]*)"/)[1]);
@@ -149,7 +146,6 @@ Object.assign(_fetch_params, postData);
 log("kuba search postData>>>>>>>>>>>>>>>" + JSON.stringify(_fetch_params));
 let search_html = post( HOST + '/index.php?m=vod-search', _fetch_params)
 search_html = search_html.replace(/<script>.*?<\\/script>/g,"");
-//log("kuba search result>>>>>>>>>>>>>>>" + search_html.substring(4096));
 let d=[];
 let dlist = pdfa(search_html, 'li.activeclearfix');
 log("kuba search dlist.length>>>>>>>>>>>>>" + dlist.length);
