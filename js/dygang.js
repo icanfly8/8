@@ -59,11 +59,8 @@ var rule = {
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 TABS=[]
 let d = pdfa(html, '#dede_content table tbody tr');
-let tabsa = [];
-let tabsq = [];
 let tabsm = false;
 let tabse = false;
-let tabm3u8 = [];
 d.forEach(function(it) {
 	let burl = pd(it, 'a&&href',HOST);
 	if (burl.startsWith("magnet")){
@@ -84,9 +81,6 @@ if (tabsm === true){
 if (tabse === true){
 	TABS.push("电驴");
 }
-tabm3u8.forEach(function(it){
-	TABS.push(it);
-});
 log('dygang TABS >>>>>>>>>>>>>>>>>>' + TABS);
 `,
 		lists:`js:
@@ -96,7 +90,6 @@ LISTS = [];
 let d = pdfa(html, '#dede_content table tbody tr');
 let listm = [];
 let liste = [];
-let listm3u8 = {};
 d.forEach(function(it){
 	let burl = pd(it, 'a&&href',HOST);
 	let title = pdfh(it, 'a&&Text');
@@ -115,13 +108,7 @@ if (listm.length>0){
 if (liste.length>0){
 	LISTS.push(liste);
 }
-for ( const key in listm3u8 ){
-	if (listm3u8.hasOwnProperty(key)){
-		LISTS.push(listm3u8[key]);
-	}
-};
 `,
-
 	},
 	搜索:`js:
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
