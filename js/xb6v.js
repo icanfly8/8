@@ -15,8 +15,8 @@ var rule = {
 		'Referer': 'http://www.xb6v.com/'
 	},
 	timeout:5000,
-	class_name:'最新50部&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&电视剧&综艺',
-	class_url:'qian50m.html&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&dianshiju&ZongYi',
+	class_name:'电视剧&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&综艺&动画片',
+	class_url:'dianshiju&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&ZongYi&donghuapian',
 	play_parse:true,
 	play_json:[{
 		re:'*',
@@ -46,35 +46,20 @@ setResult(d);
 	一级:`js:
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 let d = [];
-if (MY_CATE !== 'qian50m.html') {
-	let turl = (MY_PAGE === 1)? '/' : '/index_'+ MY_PAGE + '.html';
-	input = rule.homeUrl + MY_CATE + turl;
-	let html = request(input);
-	let list = pdfa(html, 'div.mainleft ul#post_container li');
-	list.forEach(it => {
+input = rule.homeUrl + MY_CATE;
+let html = request(input);
+let list = pdfa(html, 'div.container div#tab-content&&ul&&li');
+list.forEach(it => {
+	let title = pdfh(it, 'a&&Text');
+	if (title!==""){
 		d.push({
-			title: pdfh(it, 'div.thumbnail img&&alt'),
-			desc: pdfh(it, 'div.info&&span.info_date&&Text') + ' / ' + pdfh(it, 'div.info&&span.info_category&&Text'),
-			pic_url: pd(it, 'div.thumbnail img&&src', HOST),
-			url: pdfh(it, 'div.thumbnail&&a&&href')
+			title: title,
+			desc: pdfh(it, 'a&&Text'),
+			pic_url: '',
+			url: pdfh(it, 'a&&href')
 		});
-	})
-}else{
-	input = rule.homeUrl + MY_CATE;
-	let html = request(input);
-	let list = pdfa(html, 'div.container div#tab-content&&ul&&li');
-	list.forEach(it => {
-		let title = pdfh(it, 'a&&Text');
-		if (title!==""){
-			d.push({
-				title: title,
-				desc: pdfh(it, 'a&&Text'),
-				pic_url: '',
-				url: pdfh(it, 'a&&href')
-			});
-		}
-	})
-}
+	}
+})
 setResult(d);
 `,
 	二级:{
