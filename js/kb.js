@@ -1,5 +1,5 @@
 var rule = {
-	title:'kuba',
+	title:'kb',
 	host:'https://www.kuba222.com',
         homeUrl: '/',
 	url: '/vodtypehtml/fyclass.html?',
