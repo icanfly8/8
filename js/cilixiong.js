@@ -62,7 +62,7 @@ var rule = {
 		img:'.rounded-2&&src',
 		content:'.mv_card_box&&Text',
 
-		tabs:'js:TABS = ["磁力","预览"]',
+		tabs:'js:TABS = ["磁力"]',
 		lists:`js:
 		log(TABS);
 		pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
@@ -78,14 +78,6 @@ var rule = {
 					log('burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
 					return title + '$' + burl
 				});
-				LISTS.push(d)
-			} else if (/预览/.test(tab)) {
-				var d = pd(html, 'iframe&&src');
-				if (d) {
-					d=['在线播放$' + d]
-				} else {
-					d=['没有预览$http://www.sharenice.net/douyin/23852']
-				}
 				LISTS.push(d)
 			}
 		});
