@@ -17,8 +17,8 @@ var rule = {
 		'Referer': 'https://www.dygang.tv/'
 	},
 	timeout:5000,
-	class_name:'最新电影&经典高清&国配电影&经典港片&国剧&日韩剧&美剧&综艺&动漫&纪录片&高清原盘&4K高清区&3D电影&电影专题',
-	class_url:'ys&bd&gy&gp&dsj&dsj1&yx&zy&dmq&jilupian&1080p&4K&3d&dyzt',
+	class_name:'最新电影&经典高清&国配电影&经典港片&国剧&日韩剧&美剧&综艺&动漫&纪录片&1080P&4K高清',
+	class_url:'ys&bd&gy&gp&dsj&dsj1&yx&zy&dmq&jilupian&1080p&4K',
 	play_parse:true,
 	play_json:[{
 		re:'*',
@@ -94,8 +94,6 @@ log(TABS);
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 LISTS = [];
 let d = pdfa(html, '#dede_content table tbody tr');
-let lista = [];
-let listq = [];
 let listm = [];
 let liste = [];
 let listm3u8 = {};
@@ -105,31 +103,7 @@ d.forEach(function(it){
 	log('dygang title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
 	log('dygang burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
 	let loopresult = title + '$' + burl;
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-			burl = 'push://' + burl;
-		}
-		loopresult = title + '$' + burl;
-		lista.push(loopresult);
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-			burl = 'push://' + burl;
-		}
-		loopresult = title + '$' + burl;
-		listq.push(loopresult);
-	}else if (burl.startsWith("magnet")){
+	if (burl.startsWith("magnet")){
 		listm.push(loopresult);
 	}else if (burl.startsWith("ed2k")){
 		liste.push(loopresult);
@@ -141,12 +115,6 @@ if (listm.length>0){
 if (liste.length>0){
 	LISTS.push(liste);
 }
-lista.forEach(function(it){
-	LISTS.push([it]);
-});
-listq.forEach(function(it){
-	LISTS.push([it]);
-});
 for ( const key in listm3u8 ){
 	if (listm3u8.hasOwnProperty(key)){
 		LISTS.push(listm3u8[key]);
@@ -167,7 +135,6 @@ delete(_fetch_params.headers['Content-Type']);
 Object.assign(_fetch_params, postData);
 log("dygang search postData>>>>>>>>>>>>>>>" + JSON.stringify(_fetch_params));
 let search_html = request( HOST + '/e/search/index123.php', _fetch_params, true);
-//log("dygang search result>>>>>>>>>>>>>>>" + search_html);
 let d=[];
 let dlist = pdfa(search_html, 'table.border1');
 dlist.forEach(function(it){
