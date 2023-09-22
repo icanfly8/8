@@ -16,9 +16,8 @@ var rule = {
 		'User-Agent': 'MOBILE_UA',
 		'Referer': 'https://www.dygang.tv/'
 	},
-	tab_exclude:'夸克網盤1',
 	timeout:5000,
-	class_name:'最新电影1&经典高清&国配电影&经典港片&国剧&日韩剧&美剧&综艺&动漫&纪录片&高清原盘&4K高清区&3D电影&电影专题',
+	class_name:'最新电影&经典高清&国配电影&经典港片&国剧&日韩剧&美剧&综艺&动漫&纪录片&高清原盘&4K高清区&3D电影&电影专题',
 	class_url:'ys&bd&gy&gp&dsj&dsj1&yx&zy&dmq&jilupian&1080p&4K&3d&dyzt',
 	play_parse:true,
 	play_json:[{
@@ -67,11 +66,7 @@ let tabse = false;
 let tabm3u8 = [];
 d.forEach(function(it) {
 	let burl = pd(it, 'a&&href',HOST);
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		tabsa.push("阿里雲盤");
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		tabsq.push("夸克網盤");
-	}else if (burl.startsWith("magnet")){
+	if (burl.startsWith("magnet")){
 		tabsm = true;
 	}else if (burl.startsWith("ed2k")){
 		tabse = true;
@@ -89,20 +84,6 @@ if (tabsm === true){
 if (tabse === true){
 	TABS.push("電驢");
 }
-if (false && tabsa.length + tabsq.length > 1){
-	TABS.push("選擇右側綫路");
-}
-let tmpIndex;
-tmpIndex=1;
-tabsa.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
-tmpIndex=1;
-tabsq.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
 tabm3u8.forEach(function(it){
 	TABS.push(it);
 });
