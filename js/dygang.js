@@ -1,5 +1,5 @@
 var rule = {
-	title:'电影港[磁]',
+	title:'dygang',
 	编码:'gb2312',
 	搜索编码:'gb2312',
 	host:'https://www.dygang.tv',
