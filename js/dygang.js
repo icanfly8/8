@@ -82,7 +82,7 @@ if (tabsm === true){
 	TABS.push("磁力");
 }
 if (tabse === true){
-	TABS.push("電驢");
+	TABS.push("电驴");
 }
 tabm3u8.forEach(function(it){
 	TABS.push(it);
