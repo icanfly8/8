@@ -22,13 +22,13 @@ var rule = {
 	class_parse:'.stui-header__menu li:gt(0):lt(7);a&&Text;a&&href;/(\\d+).html',
 	tab_exclude:'夸克网盘|百度云盘',
 	pagecount:{"27":1},
-	lazy:`js: var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
+	lazy:`js:
+var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
 var url = html.url;
 var from = html.from;
 var next = html.link_next;
 var id = html.id;
 var nid = html.nid;
-// var paurl = request("https://libvio.cc/static/player/" + from + ".js").match(/ src="(.*?)'/)[1];
 var paurl = request(HOST + "/static/player/" + from + ".js").match(/ src="(.*?)'/)[1];
 if (/https/.test(paurl)) {
 	var purl = paurl + url + "&next=" + next + "&id=" + id + "&nid=" + nid;
