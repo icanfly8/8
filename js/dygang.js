@@ -69,12 +69,6 @@ d.forEach(function(it) {
 		tabse = true;
 	}
 });
-if (false){
-d = pdfa(html, 'div:has(>div#post_content) div.widget:has(>h3)');
-d.forEach(function(it) {
-	tabm3u8.push(pdfh(it, 'h3&&Text'));
-});
-}
 if (tabsm === true){
 	TABS.push("磁力");
 }
