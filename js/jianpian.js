@@ -1,5 +1,5 @@
 var rule = {
-    title:'jp',
+    title:'jianpian',
     host:'http://api2.rinhome.com',
     homeUrl:'/api/tag/hand?code=unknown601193cf375db73d&channel=wandoujia',
     url:'/api/crumb/list?area=0&page=fypage&type=0&limit=24&fyfilter',
