@@ -1,5 +1,5 @@
 var rule = {
-	title:'MP4电影[磁',
+	title:'mp4us',
 	host:'https://www.mp4us.com',
         homeUrl: '/',
 	url: '/list/fyclass-fypage.html?',
@@ -44,11 +44,7 @@ let tabsm = false;
 let tabse = false;
 d.forEach(function(it) {
 	let burl = pdfh(it, 'a&&href');
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		tabsa.push("阿里雲盤");
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		tabsq.push("夸克網盤");
-	}else if (burl.startsWith("magnet")){
+	if (burl.startsWith("magnet")){
 		tabsm = true;
 	}else if (burl.startsWith("ed2k")){
 		tabse = true;
@@ -58,22 +54,8 @@ if (tabsm === true){
 	TABS.push("磁力");
 }
 if (tabse === true){
-	TABS.push("電驢");
+	TABS.push("电驴");
 }
-if (false && tabsa.length + tabsq.length > 1){
-	TABS.push("選擇右側綫路");
-}
-let tmpIndex;
-tmpIndex=1;
-tabsa.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
-tmpIndex=1;
-tabsq.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
 log('mp4us TABS >>>>>>>>>>>>>>>>>>' + TABS);
 `,
 		lists:`js:
