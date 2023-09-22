@@ -1,5 +1,5 @@
 var rule = {
-	title:'MP4电影[磁]',
+	title:'MP4电影[磁',
 	host:'https://www.mp4us.com',
         homeUrl: '/',
 	url: '/list/fyclass-fypage.html?',
