@@ -86,11 +86,8 @@ setResult(d);
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 TABS=[]
 let d = pdfa(html, 'div#post_content table tbody tr a');
-let tabsa = [];
-let tabsq = [];
 let tabsm = false;
 let tabse = false;
-let tabm3u8 = [];
 d.forEach(function(it) {
 	let burl = pdfh(it, 'a&&href');
 	if (burl.startsWith("magnet")){
@@ -111,9 +108,6 @@ if (tabsm === true){
 if (tabse === true){
 	TABS.push("电驴");
 }
-tabm3u8.forEach(function(it){
-	TABS.push(it);
-});
 log('xb6v TABS >>>>>>>>>>>>>>>>>>' + TABS);
 `,
 		lists:`js:
@@ -121,42 +115,15 @@ log(TABS);
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 LISTS = [];
 let d = pdfa(html, 'div#post_content table tbody tr a');
-let lista = [];
-let listq = [];
 let listm = [];
 let liste = [];
-let listm3u8 = {};
 d.forEach(function(it){
 	let burl = pdfh(it, 'a&&href');
 	let title = pdfh(it, 'a&&Text');
 	log('xb6v title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
 	log('xb6v burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
 	let loopresult = title + '$' + burl;
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-                        burl = "push://" + burl;
-                }
-		loopresult = title + '$' + burl;
-		lista.push(loopresult);
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-                        burl = "push://" + burl;
-                }
-		loopresult = title + '$' + burl;
-		listq.push(loopresult);
-	}else if (burl.startsWith("magnet")){
+	if (burl.startsWith("magnet")){
 		listm.push(loopresult);
 	}else if (burl.startsWith("ed2k")){
 		liste.push(loopresult);
@@ -168,20 +135,6 @@ if (listm.length>0){
 if (liste.length>0){
 	LISTS.push(liste);
 }
-if (false && lista.length + listq.length > 1){
-	LISTS.push(["選擇右側綫路，或3秒後自動跳過$http://127.0.0.1:10079/delay/"]);
-}
-lista.forEach(function(it){
-	LISTS.push([it]);
-});
-listq.forEach(function(it){
-	LISTS.push([it]);
-});
-for ( const key in listm3u8 ){
-	if (listm3u8.hasOwnProperty(key)){
-		LISTS.push(listm3u8[key]);
-	}
-};
 `,
 
 	},
@@ -197,7 +150,6 @@ delete(_fetch_params.headers['Content-Type']);
 Object.assign(_fetch_params, postData);
 log("xb6v search postData>>>>>>>>>>>>>>>" + JSON.stringify(_fetch_params));
 let search_html = request( HOST + '/e/search/index.php', _fetch_params, true);
-//log("xb6v search result>>>>>>>>>>>>>>>" + search_html);
 let d=[];
 let dlist = pdfa(search_html, 'div.mainleft&&ul#post_container&&li');
 dlist.forEach(function(it){
