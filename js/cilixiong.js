@@ -1,5 +1,5 @@
 var rule = {
-	title:'clx',
+	title:'cilixiong',
 	host:'https://www.cilixiong.com',
 	homeUrl:'/top250/index.html',
 	url: '/fyclassfyfilter-(fypage-1).html',
