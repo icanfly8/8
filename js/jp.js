@@ -1,13 +1,11 @@
 var rule = {
     title:'jp',
     host:'http://api2.rinhome.com',
-    // homeUrl:'https://yjpapipxblwdohpakljwg.hxhzs.com/api/tag/hand?code=unknown601193cf375db73d&channel=wandoujia',//网站的首页链接,用于分类获取和推荐获取
-    homeUrl:'/api/tag/hand?code=unknown601193cf375db73d&channel=wandoujia',//网站的首页链接,用于分类获取和推荐获取
-    // url:'/api/crumb/list?area=0&category_id=fyclass&page=fypage&type=0&limit=24&fyfilter',
+    homeUrl:'/api/tag/hand?code=unknown601193cf375db73d&channel=wandoujia',
     url:'/api/crumb/list?area=0&page=fypage&type=0&limit=24&fyfilter',
-    class_name:'全部&电影&电视剧&动漫&综艺',     // 筛选 /api/term/ad_fenlei?limit=10&page=1
+    class_name:'全部&电影&电视剧&动漫&综艺',
     class_url:'0&1&2&3&4',
-    detailUrl:'/api/node/detail?channel=wandoujia&token=&id=fyid',//二级详情拼接链接(json格式用)
+    detailUrl:'/api/node/detail?channel=wandoujia&token=&id=fyid',
     searchUrl:'/api/video/search?key=**&page=fypage',
     searchable:2,
     quickSearch:0,
@@ -19,11 +17,10 @@ var rule = {
         "3":[{"key":"cateId","name":"分类","value":[{"n":"全部","v":"3"},{"n":"首推","v":"19"},{"n":"海外","v":"20"},{"n":"日本","v":"21"},{"n":"国产","v":"22"}]},{"key":"year","name":"年代","value":[{"n":"全部","v":"0"},{"n":"2023","v":"153"},{"n":"2022","v":"101"},{"n":"2021","v":"118"},{"n":"2020","v":"16"},{"n":"2019","v":"7"},{"n":"2018","v":"2"},{"n":"2017","v":"3"},{"n":"2016","v":"22"}]},{"key":"sort","name":"排序","value":[{"n":"热门","v":"hot"},{"n":"评分","v":"rating"},{"n":"更新","v":"update"}]}],
         "4":[{"key":"cateId","name":"分类","value":[{"n":"全部","v":"4"},{"n":"首推","v":"23"},{"n":"国产","v":"24"},{"n":"海外","v":"25"},{"n":"港台","v":"26"}]},{"key":"year","name":"年代","value":[{"n":"全部","v":"0"},{"n":"2023","v":"153"},{"n":"2022","v":"101"},{"n":"2021","v":"118"},{"n":"2020","v":"16"},{"n":"2019","v":"7"},{"n":"2018","v":"2"},{"n":"2017","v":"3"},{"n":"2016","v":"22"}]},{"key":"sort","name":"排序","value":[{"n":"热门","v":"hot"},{"n":"评分","v":"rating"},{"n":"更新","v":"update"}]}]
     },
-    // filter_url:'sort={{fl.sort or "hot"}}&year={{fl.year or "0"}}',
     filter_url:'sort={{fl.sort or "update"}}&year={{fl.year or "0"}}&category_id={{fl.cateId}}',
 	filter_def:{
 		0:{cateId:'0'},
-        1:{cateId:'1'},
+                1:{cateId:'1'},
 		2:{cateId:'2'},
 		3:{cateId:'3'},
 		4:{cateId:'4'}
@@ -43,27 +40,22 @@ var rule = {
         }
     }],
     lazy:'',
-    // double:true,
     图片来源:'@Referer=www.jianpianapp.com@User-Agent=jianpian-version353',
-    // 推荐:'json:data;room;*;cover;*;*',
     推荐:'json:.video;*;*;*;*',
     一级:'json:data;title;path;playlist.title;id',
     二级:{
-        // title:'data.title',
         title:'data.title;data.types[0].name',
-        // desc:';data.description;data.id',
         desc:'data.score;data.year.title;data.area.title;data.actors[0].name;data.directors[0].name',
         img:'data.thumbnail',
-        // content:'data.thumbnail',
         content:'data.description',
         is_json:1,
         tabs:`js:
             TABS = [];
             if (html.data.have_ftp_ur == 1) {
-                TABS.push("边下边播超清版")
+                TABS.push("边下边播")
             }
             if (html.data.have_m3u8_ur == 1) {
-                TABS.push("在线点播普清版")
+                TABS.push("在线点播")
             }
         `,
         lists:`js:
