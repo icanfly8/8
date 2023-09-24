@@ -28,7 +28,7 @@ var rule = {
 			TABS = ["磁力"];
 			let tabs = pdfa(html, '#content&&h3:not(:contains(网盘))');
 			tabs.forEach((it) => {
-				TABS.push(pdfh(it, "body&&Text").replace('播放地址','道长在线').replace('（无插件 极速播放）','一').replace('（无需安装插件）','二'))
+				TABS.push(pdfh(it, "body&&Text"))
 			});
 		`,
 		"lists": `js:
