@@ -11,7 +11,7 @@ var rule = {
 	quickSearch:0,
 	filterable:1,
 	headers:{
-		'User-Agent': 'MOBILE_UA'
+		'User-Agent': 'PC_UA'
 	},
 	timeout:5000,
 	class_parse:'#menus&&li:gt(1);a&&Text;a&&href;.*/(.*)/',
@@ -26,7 +26,7 @@ var rule = {
 		"desc": ";;;#post_content&&p:eq(0)&&Text;#post_content&&p:eq(2)&&Text",
 		"content": "#post_content&&p:eq(1)&&Text",
 		"tabs": `js:
-			TABS = ["磁力"];
+			TABS = ["磁力1"];
 			let tabs = pdfa(html, 'div#post_content table tbody tr a');
 			tabs.forEach((it) => {
 				TABS.push(pdfh(it, "body&&Text"))
@@ -37,7 +37,7 @@ var rule = {
 			pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 			LISTS = [];
 			TABS.forEach(function(tab) {
-				if (/磁力/.test(tab)) {
+				if (/磁力1/.test(tab)) {
 					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
