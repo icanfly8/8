@@ -27,7 +27,7 @@ var rule = {
 		"content": "#post_content&&p:eq(1)&&Text",
 		"tabs": `js:
 			TABS = ["磁力"];
-			let tabs = pdfa(html, 'div#post_content');
+			let tabs = pdfa(html, 'div#post_content table tbody tr a');
 			tabs.forEach((it) => {
 				TABS.push(pdfh(it, "body&&Text"))
 			});
@@ -38,7 +38,7 @@ var rule = {
 			LISTS = [];
 			TABS.forEach(function(tab) {
 				if (/磁力/.test(tab)) {
-					var d = pdfa(html, 'div#post_content');
+					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
 						var burl = pd(it, 'a&&href');
