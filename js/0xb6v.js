@@ -21,12 +21,12 @@ var rule = {
 	推荐: '*',
 	一级: '#post_container&&li;h2&&Text;img&&src;.info_date&&Text;a&&href',
 	二级: {
-		"title": "#content&&h1&&Text;.info_category&&Text",
-		"img": "#post_content&&img&&src",
-		"desc": ";;;#post_content&&p:eq(0)&&Text;#post_content&&p:eq(2)&&Text",
-		"content": "#post_content&&p:eq(1)&&Text",
+		title:"div.article_container h1&&Text",
+		img:"div#post_content img&&src",
+		desc:"div#post_content&&Text",
+		content:"div#post_content&&Text",
 		"tabs": `js:
-			TABS = ["磁力"];
+			TABS = ["磁力1"];
 			let tabs = pdfa(html, 'div#post_content table tbody tr a');
 			tabs.forEach((it) => {
 				TABS.push(pdfh(it, "body&&Text"))
@@ -37,7 +37,7 @@ var rule = {
 			pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 			LISTS = [];
 			TABS.forEach(function(tab) {
-				if (/磁力/.test(tab)) {
+				if (/磁力1/.test(tab)) {
 					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
