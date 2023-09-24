@@ -15,6 +15,7 @@ var rule = {
 	},
 	timeout:5000,
 	class_parse:'#menus&&li:gt(1);a&&Text;a&&href;.*/(.*)/',
+	cate_exclude:'欧美剧|旧版6v',
 	play_parse:true,
 	limit:6,
 	推荐: '*',
@@ -25,7 +26,7 @@ var rule = {
 		"desc": ";;;#post_content&&p:eq(0)&&Text;#post_content&&p:eq(2)&&Text",
 		"content": "#post_content&&p:eq(1)&&Text",
 		"tabs": `js:
-			TABS = ["磁力1"];
+			TABS = ["磁力"];
 			let tabs = pdfa(html, 'div#post_content table tbody tr a');
 			tabs.forEach((it) => {
 				TABS.push(pdfh(it, "body&&Text"))
@@ -36,11 +37,11 @@ var rule = {
 			pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 			LISTS = [];
 			TABS.forEach(function(tab) {
-				if (/磁力1/.test(tab)) {
+				if (/磁力/.test(tab)) {
 					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
-						var burl = pdfh(it, 'a&&href');
+						var burl = pd(it, 'a&&href');
 						return title + '$' + burl
 					});
 					LISTS.push(d)
