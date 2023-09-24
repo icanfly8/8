@@ -1,161 +1,65 @@
 var rule = {
-	title:'xb6v',
+	title:'6V新版[磁]',
 	host:'http://www.xb6v.com',
-	homeUrl:'/',
-	url: '/fyclass/index_fypage.html?',
+	// host:'https://www.66s6.net',
+	// url: '/fyclass/index_fypage.html[/fyclass/index.html]',
+	url: '/fyclassfyfilter/index_fypage.html[/fyclassfyfilter/index.html]',
 	filter_url:'{{fl.class}}',
 	filter:{
+		"dianshiju":[{"key":"class","name":"类型","value":[{"n":"全部","v":""},{"n":"国剧","v":"/guoju"},{"n":"日韩剧","v":"/rihanju"},{"n":"欧美剧","v":"/oumeiju"}]}]
 	},
-	searchUrl: '/e/search/index.php#tempid=1&tbname=article&mid=1&dopost=search&submit=&keyborad=**;post',
+	searchUrl: '/e/search/index.php#show=title&tempid=1&tbname=article&mid=1&dopost=search&submit=&keyboard=**;post',
 	searchable:2,
 	quickSearch:0,
-	filterable:0,
+	filterable:1,
 	headers:{
-		'User-Agent': 'PC_UA',
-		'Referer': 'http://www.xb6v.com/'
+		'User-Agent': 'MOBILE_UA'
 	},
 	timeout:5000,
-	class_name:'电视剧&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&综艺&动画片',
-	class_url:'dianshiju&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&ZongYi&donghuapian',
+	class_parse:'#menus&&li:gt(1);a&&Text;a&&href;.*/(.*)/',
+	cate_exclude:'欧美剧|旧版6v',
 	play_parse:true,
-	play_json:[{
-		re:'*',
-		json:{
-			parse:0,
-			jx:0
-		}
-	}],
-	lazy:'',
 	limit:6,
-	推荐:`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-let d = [];
-let html = request(input);
-let list = pdfa(html, 'div.mainleft ul#post_container li');
-list.forEach(it => {
-	d.push({
-		title: pdfh(it, 'div.thumbnail img&&alt'),
-		desc: pdfh(it, 'div.info&&span.info_date&&Text') + ' / ' + pdfh(it, 'div.info&&span.info_category&&Text'),
-		pic_url: pd(it, 'div.thumbnail img&&src', HOST),
-		url: pdfh(it, 'div.thumbnail&&a&&href')
-	});
-});
-setResult(d);
-	`,
-	一级:'',
-	一级:`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-let d = [];
-input = rule.homeUrl + MY_CATE;
-let html = request(input);
-let list = pdfa(html, 'div.container div#tab-content&&ul&&li');
-list.forEach(it => {
-	let title = pdfh(it, 'a&&Text');
-	if (title!==""){
-		d.push({
-			title: title,
-			desc: pdfh(it, 'a&&Text'),
-			pic_url: '',
-			url: pdfh(it, 'a&&href')
-		});
-	}
-})
-setResult(d);
-`,
-	二级:{
-		title:"div.article_container h1&&Text",
-		img:"div#post_content img&&src",
-		desc:"div#post_content&&Text",
-		content:"div#post_content&&Text",
-		tabs:`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-TABS=[]
-let d = pdfa(html, 'div#post_content table tbody tr a');
-let tabsm = false;
-let tabse = false;
-d.forEach(function(it) {
-	let burl = pdfh(it, 'a&&href');
-	if (burl.startsWith("magnet")){
-		tabsm = true;
-	}else if (burl.startsWith("ed2k")){
-		tabse = true;
-	}
-});
-if (false){
-d = pdfa(html, 'div:has(>div#post_content) div.widget:has(>h3)');
-d.forEach(function(it) {
-	tabm3u8.push(pdfh(it, 'h3&&Text'));
-});
-}
-if (tabsm === true){
-	TABS.push("磁力");
-}
-if (tabse === true){
-	TABS.push("电驴");
-}
-log('xb6v TABS >>>>>>>>>>>>>>>>>>' + TABS);
-`,
-		lists:`js:
-log(TABS);
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-LISTS = [];
-let d = pdfa(html, 'div#post_content table tbody tr a');
-let listm = [];
-let liste = [];
-d.forEach(function(it){
-	let burl = pdfh(it, 'a&&href');
-	let title = pdfh(it, 'a&&Text');
-	log('xb6v title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
-	log('xb6v burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
-	let loopresult = title + '$' + burl;
-	if (burl.startsWith("magnet")){
-		listm.push(loopresult);
-	}else if (burl.startsWith("ed2k")){
-		liste.push(loopresult);
-	}
-});
-if (listm.length>0){
-	LISTS.push(listm);
-}
-if (liste.length>0){
-	LISTS.push(liste);
-}
-`,
-
+	推荐: '*',
+	一级: '#post_container&&li;h2&&Text;img&&src;.info_date&&Text;a&&href',
+	二级: {
+		"title": "#content&&h1&&Text;.info_category&&Text",
+		"img": "#post_content&&img&&src",
+		"desc": ";;;#post_content&&p:eq(0)&&Text;#post_content&&p:eq(2)&&Text",
+		"content": "#post_content&&p:eq(1)&&Text",
+		"tabs": `js:
+			TABS = ["道长磁力"];
+			let tabs = pdfa(html, '#content&&h3:not(:contains(网盘))');
+			tabs.forEach((it) => {
+				TABS.push(pdfh(it, "body&&Text").replace('播放地址','道长在线').replace('（无插件 极速播放）','一').replace('（无需安装插件）','二'))
+			});
+		`,
+		"lists": `js:
+			log(TABS);
+			pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
+			LISTS = [];
+			let i = 1;
+			TABS.forEach(function(tab) {
+				if (/道长磁力/.test(tab)) {
+					var d = pdfa(html, '.context&&td');
+					d = d.map(function(it) {
+						var title = pdfh(it, 'a&&Text');
+						var burl = pd(it, 'a&&href');
+						return title + '$' + burl
+					});
+					LISTS.push(d)
+				} else if (/道长在线/.test(tab) && i <= TABS.length-1) {
+					var d = pdfa(html, '.context&&.widget:eq(list_idx)&&a'.replace("list_idx", i));
+					d = d.map(function(it) {
+						var title = pdfh(it, 'a&&Text');
+						var burl = pd(it, 'a&&href');
+						return title + '$' + burl
+					});
+					LISTS.push(d)
+					i = i + 1;
+				}
+			});
+		`,
 	},
-	搜索:`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-let params = 'show=title&tempid=1&tbname=article&mid=1&dopost=search&submit=&keyboard=' + encodeURIComponent(KEY);
-let _fetch_params = JSON.parse(JSON.stringify(rule_fetch_params));
-let postData = {
-    method: "POST",
-    body: params
-};
-delete(_fetch_params.headers['Content-Type']);
-Object.assign(_fetch_params, postData);
-log("xb6v search postData>>>>>>>>>>>>>>>" + JSON.stringify(_fetch_params));
-let search_html = request( HOST + '/e/search/index.php', _fetch_params, true);
-let d=[];
-let dlist = pdfa(search_html, 'div.mainleft&&ul#post_container&&li');
-dlist.forEach(function(it){
-	let title = pdfh(it, 'div.thumbnail img&&alt').replace( /(<([^>]+)>)/ig, '');
-	if (searchObj.quick === true){
-		if (false && title.includes(KEY)){
-			title = KEY;
-		}
-	}
-	let img = pd(it, 'div.thumbnail img&&src', HOST);
-	let content = pdfh(it, 'div.article div.entry_post&&Text');
-	let desc = pdfh(it, 'div.info&&span.info_date&&Text');
-	let url = pd(it, 'div.thumbnail&&a&&href', HOST);
-	d.push({
-		title:title,
-		img:img,
-		content:content,
-		desc:desc,
-		url:url
-		});
-});
-setResult(d);
-`,
+	搜索: '*',
 }
