@@ -1,8 +1,6 @@
 var rule = {
 	title:'6V新版[磁]',
 	host:'http://www.xb6v.com',
-	// host:'https://www.66s6.net',
-	// url: '/fyclass/index_fypage.html[/fyclass/index.html]',
 	url: '/fyclassfyfilter/index_fypage.html[/fyclassfyfilter/index.html]',
 	filter_url:'{{fl.class}}',
 	filter:{
@@ -17,7 +15,6 @@ var rule = {
 	},
 	timeout:5000,
 	class_parse:'#menus&&li:gt(1);a&&Text;a&&href;.*/(.*)/',
-	cate_exclude:'欧美剧|旧版6v',
 	play_parse:true,
 	limit:6,
 	推荐: '*',
