@@ -1,7 +1,7 @@
 var rule = {
 	title:'6V新版[磁]',
 	host:'http://www.xb6v.com',
-	url: '/fyclass/index_fypage.html[/fyclass/index.html]',
+	url: '/fyclass/index_fypage.html',
 	//url: '/fyclassfyfilter/index_fypage.html[/fyclassfyfilter/index.html]',
 	filter_url:'{{fl.class}}',
 	filter:{
