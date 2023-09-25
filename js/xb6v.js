@@ -27,7 +27,7 @@ var rule = {
 		"content": "#post_content&&p:eq(1)&&Text",
 		"tabs": `js:
 			TABS = ["磁力1"];
-			let tabs = pdfa(html, 'div#post_content table tbody tr a');
+			let tabs = pdfa(html, '#content&&h3:not(:contains(网盘))');
 			tabs.forEach((it) => {
 				TABS.push(pdfh(it, "body&&Text").replace('播放地址','道长在线').replace('（无插件 极速播放）','一').replace('（无需安装插件）','二'))
 			});
@@ -38,7 +38,7 @@ var rule = {
 			LISTS = [];
 			TABS.forEach(function(tab) {
 				if (/磁力1/.test(tab)) {
-					var d = pdfa(html, '.context&&td');
+					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
 						var burl = pd(it, 'a&&href');
