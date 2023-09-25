@@ -18,7 +18,21 @@ var rule = {
 	cate_exclude:'欧美剧|旧版6v',
 	play_parse:true,
 	limit:6,
-	推荐: '*',
+	推荐:`js:
+pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
+let d = [];
+let html = request(input);
+let list = pdfa(html, 'div.mainleft ul#post_container li');
+list.forEach(it => {
+	d.push({
+		title: pdfh(it, 'div.thumbnail img&&alt'),
+		desc: pdfh(it, 'div.info&&span.info_date&&Text') + ' / ' + pdfh(it, 'div.info&&span.info_category&&Text'),
+		pic_url: pd(it, 'div.thumbnail img&&src', HOST),
+		url: pdfh(it, 'div.thumbnail&&a&&href')
+	});
+});
+setResult(d);
+	`,
 	一级: '#post_container&&li;h2&&Text;img&&src;.info_date&&Text;a&&href',
 	二级: {
 		"title": "#content&&h1&&Text;.info_category&&Text",
