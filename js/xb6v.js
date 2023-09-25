@@ -17,6 +17,13 @@ var rule = {
 	class_parse:'#menus&&li:gt(1);a&&Text;a&&href;.*/(.*)/',
 	cate_exclude:'欧美剧|旧版6v',
 	play_parse:true,
+	play_json:[{
+		re:'*',
+		json:{
+			parse:0,
+			jx:0
+		}
+	}],
 	limit:6,
 	推荐: '*',
 	一级: '#post_container&&li;h2&&Text;img&&src;.info_date&&Text;a&&href',
