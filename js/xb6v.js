@@ -18,21 +18,7 @@ var rule = {
 	cate_exclude:'欧美剧|旧版6v',
 	play_parse:true,
 	limit:6,
-	推荐:`js:
-pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-let d = [];
-let html = request(input);
-let list = pdfa(html, 'div.mainleft ul#post_container li');
-list.forEach(it => {
-	d.push({
-		title: pdfh(it, 'div.thumbnail img&&alt'),
-		desc: pdfh(it, 'div.info&&span.info_date&&Text') + ' / ' + pdfh(it, 'div.info&&span.info_category&&Text'),
-		pic_url: pd(it, 'div.thumbnail img&&src', HOST),
-		url: pdfh(it, 'div.thumbnail&&a&&href')
-	});
-});
-setResult(d);
-	`,
+	推荐: '*',
 	一级: '#post_container&&li;h2&&Text;img&&src;.info_date&&Text;a&&href',
 	二级: {
 		"title": "#content&&h1&&Text;.info_category&&Text",
@@ -40,10 +26,12 @@ setResult(d);
 		"desc": ";;;#post_content&&p:eq(0)&&Text;#post_content&&p:eq(2)&&Text",
 		"content": "#post_content&&p:eq(1)&&Text",
 		"tabs": `js:
-			TABS = ["磁力"];
+			TABS = [];
 			let tabs = pdfa(html, '#content&&h3:not(:contains(网盘))');
 			tabs.forEach((it) => {
-				TABS.push(pdfh(it, "body&&Text").replace('播放地址','道长在线').replace('（无插件 极速播放）','一').replace('（无需安装插件）','二'))
+                                if (burl.startsWith("magnet")){
+				        TABS.push("磁力");
+		                }
 			});
 		`,
 		"lists": `js:
