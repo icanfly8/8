@@ -1,9 +1,8 @@
 var rule = {
 	title:'6V新版[磁]',
 	host:'http://www.xb6v.com',
-	// host:'https://www.66s6.net',
-	// url: '/fyclass/index_fypage.html[/fyclass/index.html]',
-	url: '/fyclassfyfilter/index_fypage.html[/fyclassfyfilter/index.html]',
+	url: '/fyclass/index_fypage.html[/fyclass/index.html]',
+	//url: '/fyclassfyfilter/index_fypage.html[/fyclassfyfilter/index.html]',
 	filter_url:'{{fl.class}}',
 	filter:{
 		"dianshiju":[{"key":"class","name":"类型","value":[{"n":"全部","v":""},{"n":"国剧","v":"/guoju"},{"n":"日韩剧","v":"/rihanju"},{"n":"欧美剧","v":"/oumeiju"}]}]
