@@ -16,7 +16,7 @@ var rule = {
 	},
 	timeout:5000,
 	class_parse:'#menus&&li:gt(1);a&&Text;a&&href;.*/(.*)/',
-	cate_exclude:'欧美剧|旧版6v',
+	//cate_exclude:'欧美剧|旧版6v',
 	play_parse:true,
 	limit:6,
 	推荐: '*',
