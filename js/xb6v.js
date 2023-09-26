@@ -1,5 +1,5 @@
 var rule = {
-	title:'新版6V[磁]',
+	title:'xb6v',
 	host:'http://www.xb6v.com',
 	homeUrl:'/',
 	url: '/fyclass/index_fypage.html?',
@@ -15,8 +15,8 @@ var rule = {
 		'Referer': 'http://www.xb6v.com/'
 	},
 	timeout:5000,
-	class_name:'喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&电视剧&综艺',
-	class_url:'xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&dianshiju&ZongYi',
+	class_name:'电视剧&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&综艺',
+	class_url:'dianshiju&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&ZongYi',
 	play_parse:true,
 	play_json:[{
 		re:'*',
