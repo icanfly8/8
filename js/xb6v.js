@@ -15,8 +15,8 @@ var rule = {
 		'Referer': 'http://www.xb6v.com/'
 	},
 	timeout:5000,
-	class_name:'最新50部&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&电视剧&综艺',
-	class_url:'qian50m.html&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&dianshiju&ZongYi',
+	class_name:'喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&电视剧&综艺',
+	class_url:'xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&dianshiju&ZongYi',
 	play_parse:true,
 	play_json:[{
 		re:'*',
@@ -93,11 +93,7 @@ let tabse = false;
 let tabm3u8 = [];
 d.forEach(function(it) {
 	let burl = pdfh(it, 'a&&href');
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		tabsa.push("阿里雲盤");
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		tabsq.push("夸克網盤");
-	}else if (burl.startsWith("magnet")){
+	if (burl.startsWith("magnet")){
 		tabsm = true;
 	}else if (burl.startsWith("ed2k")){
 		tabse = true;
@@ -150,31 +146,7 @@ d.forEach(function(it){
 	log('xb6v title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
 	log('xb6v burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
 	let loopresult = title + '$' + burl;
-	if (burl.startsWith("https://www.aliyundrive.com/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-                        burl = "push://" + burl;
-                }
-		loopresult = title + '$' + burl;
-		lista.push(loopresult);
-	}else if (burl.startsWith("https://pan.quark.cn/s/")){
-		if (true){
-		if (TABS.length==1){
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&confirm=0&url=" + encodeURIComponent(burl);
-		}else{
-			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&url=" + encodeURIComponent(burl);
-		}
-		}else{
-                        burl = "push://" + burl;
-                }
-		loopresult = title + '$' + burl;
-		listq.push(loopresult);
-	}else if (burl.startsWith("magnet")){
+	if (burl.startsWith("magnet")){
 		listm.push(loopresult);
 	}else if (burl.startsWith("ed2k")){
 		liste.push(loopresult);
