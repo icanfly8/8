@@ -19,7 +19,7 @@ var rule = {
 	play_parse:true,
 	limit:6,
 	推荐: '*',
-	一级: 'div.container div#tab-content&&ul&&li';h2&&Text;img&&src;.info_date&&Text;a&&href',
+	一级: '#tab-content&&ul&&li';h2&&Text;img&&src;.info_date&&Text;a&&href',
 	二级: {
 		"title": "#content&&h1&&Text;.info_category&&Text",
 		"img": "#post_content&&img&&src",
