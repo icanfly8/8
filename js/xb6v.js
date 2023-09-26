@@ -28,7 +28,40 @@ var rule = {
 	lazy:'',
 	limit:6,
 	推荐: '*',
-	一级: '#post_container&&li;h2&&Text;img&&src;.info_date&&Text;a&&href',
+	一级:`js:
+pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
+let d = [];
+if (MY_CATE !== 'qian50m.html') {
+	let turl = (MY_PAGE === 1)? '/' : '/index_'+ MY_PAGE + '.html';
+	input = rule.homeUrl + MY_CATE + turl;
+	let html = request(input);
+	let list = pdfa(html, 'div.mainleft ul#post_container li');
+	list.forEach(it => {
+		d.push({
+			title: pdfh(it, 'div.thumbnail img&&alt'),
+			desc: pdfh(it, 'div.info&&span.info_date&&Text') + ' / ' + pdfh(it, 'div.info&&span.info_category&&Text'),
+			pic_url: pd(it, 'div.thumbnail img&&src', HOST),
+			url: pdfh(it, 'div.thumbnail&&a&&href')
+		});
+	})
+}else{
+	input = rule.homeUrl + MY_CATE;
+	let html = request(input);
+	let list = pdfa(html, 'div.container div#tab-content&&ul&&li');
+	list.forEach(it => {
+		let title = pdfh(it, 'a&&Text');
+		if (title!==""){
+			d.push({
+				title: title,
+				desc: pdfh(it, 'a&&Text'),
+				pic_url: '',
+				url: pdfh(it, 'a&&href')
+			});
+		}
+	})
+}
+setResult(d);
+`,
 	二级:{
 		title:"div.article_container h1&&Text",
 		img:"div#post_content img&&src",
