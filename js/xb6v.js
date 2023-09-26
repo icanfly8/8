@@ -15,8 +15,8 @@ var rule = {
 		'Referer': 'http://www.xb6v.com/'
 	},
 	timeout:5000,
-	class_name:'喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&电视剧&综艺',
-	class_url:'xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&dianshiju&ZongYi',
+	class_name:'最新50部&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&电视剧&综艺',
+	class_url:'qian50m.html&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&dianshiju&ZongYi',
 	play_parse:true,
 	play_json:[{
 		re:'*',
@@ -86,12 +86,21 @@ setResult(d);
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 TABS=[]
 let d = pdfa(html, 'div#post_content table tbody tr a');
+let tabsa = [];
+let tabsq = [];
+let tabsm = false;
+let tabse = false;
+let tabm3u8 = [];
 d.forEach(function(it) {
 	let burl = pdfh(it, 'a&&href');
-	if (burl.startsWith("magnet")){
-		TABS.push("磁力");
+	if (burl.startsWith("https://www.aliyundrive.com/s/")){
+		tabsa.push("阿里雲盤");
+	}else if (burl.startsWith("https://pan.quark.cn/s/")){
+		tabsq.push("夸克網盤");
+	}else if (burl.startsWith("magnet")){
+		tabsm = true;
 	}else if (burl.startsWith("ed2k")){
-		TABS.push("電驢");
+		tabse = true;
 	}
 });
 if (false){
@@ -100,7 +109,12 @@ d.forEach(function(it) {
 	tabm3u8.push(pdfh(it, 'h3&&Text'));
 });
 }
-
+if (tabsm === true){
+	TABS.push("磁力");
+}
+if (tabse === true){
+	TABS.push("電驢");
+}
 if (false && tabsa.length + tabsq.length > 1){
 	TABS.push("選擇右側綫路");
 }
