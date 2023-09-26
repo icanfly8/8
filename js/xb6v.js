@@ -86,11 +86,8 @@ setResult(d);
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 TABS=[]
 let d = pdfa(html, 'div#post_content table tbody tr a');
-let tabsa = [];
-let tabsq = [];
 let tabsm = false;
 let tabse = false;
-let tabm3u8 = [];
 d.forEach(function(it) {
 	let burl = pdfh(it, 'a&&href');
 	if (burl.startsWith("magnet")){
@@ -99,35 +96,12 @@ d.forEach(function(it) {
 		tabse = true;
 	}
 });
-if (false){
-d = pdfa(html, 'div:has(>div#post_content) div.widget:has(>h3)');
-d.forEach(function(it) {
-	tabm3u8.push(pdfh(it, 'h3&&Text'));
-});
-}
 if (tabsm === true){
 	TABS.push("磁力");
 }
 if (tabse === true){
-	TABS.push("電驢");
+	TABS.push("电驴");
 }
-if (false && tabsa.length + tabsq.length > 1){
-	TABS.push("選擇右側綫路");
-}
-let tmpIndex;
-tmpIndex=1;
-tabsa.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
-tmpIndex=1;
-tabsq.forEach(function(it){
-	TABS.push(it + tmpIndex);
-	tmpIndex = tmpIndex + 1;
-});
-tabm3u8.forEach(function(it){
-	TABS.push(it);
-});
 log('xb6v TABS >>>>>>>>>>>>>>>>>>' + TABS);
 `,
 		lists:`js:
@@ -135,11 +109,8 @@ log(TABS);
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 LISTS = [];
 let d = pdfa(html, 'div#post_content table tbody tr a');
-let lista = [];
-let listq = [];
 let listm = [];
 let liste = [];
-let listm3u8 = {};
 d.forEach(function(it){
 	let burl = pdfh(it, 'a&&href');
 	let title = pdfh(it, 'a&&Text');
@@ -158,22 +129,7 @@ if (listm.length>0){
 if (liste.length>0){
 	LISTS.push(liste);
 }
-if (false && lista.length + listq.length > 1){
-	LISTS.push(["選擇右側綫路，或3秒後自動跳過$http://127.0.0.1:10079/delay/"]);
-}
-lista.forEach(function(it){
-	LISTS.push([it]);
-});
-listq.forEach(function(it){
-	LISTS.push([it]);
-});
-for ( const key in listm3u8 ){
-	if (listm3u8.hasOwnProperty(key)){
-		LISTS.push(listm3u8[key]);
-	}
-};
 `,
-
 	},
 	搜索:`js:
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
