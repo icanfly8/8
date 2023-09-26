@@ -27,7 +27,7 @@ var rule = {
 	}],
 	lazy:'',
 	limit:6,
-	推荐:'div.index ul li;a&&Text;;b&&Text;a&&href',
+	推荐:'div.index_update ul li;a&&Text;;b&&Text;a&&href',
 	一级:'div#list_all ul li;img.lazy&&alt;img.lazy&&data-original;span.update_time&&Text;a&&href',
 	二级:{
 		title:"div.article-header h1&&Text",
