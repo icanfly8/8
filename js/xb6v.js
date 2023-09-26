@@ -38,25 +38,15 @@ var rule = {
 			log(TABS);
 			pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 			LISTS = [];
-			let i = 1;
 			TABS.forEach(function(tab) {
 				if (/道长磁力/.test(tab)) {
-					var d = pdfa(html, '.context&&td');
+					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
 						var burl = pd(it, 'a&&href');
 						return title + '$' + burl
 					});
 					LISTS.push(d)
-				} else if (/道长在线/.test(tab) && i <= TABS.length-1) {
-					var d = pdfa(html, '.context&&.widget:eq(list_idx)&&a'.replace("list_idx", i));
-					d = d.map(function(it) {
-						var title = pdfh(it, 'a&&Text');
-						var burl = pd(it, 'a&&href');
-						return title + '$' + burl
-					});
-					LISTS.push(d)
-					i = i + 1;
 				}
 			});
 		`,
