@@ -84,27 +84,122 @@ setResult(d);
 		content:"div#post_content&&Text",
 		tabs:`js:
 pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-TABS = ["磁力"];
-			let tabs = pdfa(html, '#content&&h3:not(:contains(网盘))');
-			tabs.forEach((it) => {
-				TABS.push(pdfh(it, "body&&Text").replace('播放地址','道长在线').replace('（无插件 极速播放）','一').replace('（无需安装插件）','二'))
-			});
+TABS=[]
+let d = pdfa(html, 'div#post_content table tbody tr a');
+let tabsa = [];
+let tabsq = [];
+let tabsm = false;
+let tabse = false;
+let tabm3u8 = [];
+d.forEach(function(it) {
+	let burl = pdfh(it, 'a&&href');
+	if (burl.startsWith("https://www.aliyundrive.com/s/")){
+		tabsa.push("阿里雲盤");
+	}else if (burl.startsWith("https://pan.quark.cn/s/")){
+		tabsq.push("夸克網盤");
+	}else if (burl.startsWith("magnet")){
+		tabsm = true;
+	}else if (burl.startsWith("ed2k")){
+		tabse = true;
+	}
+});
+if (false){
+d = pdfa(html, 'div:has(>div#post_content) div.widget:has(>h3)');
+d.forEach(function(it) {
+	tabm3u8.push(pdfh(it, 'h3&&Text'));
+});
+}
+if (tabsm === true){
+	TABS.push("磁力");
+}
+if (tabse === true){
+	TABS.push("電驢");
+}
+if (false && tabsa.length + tabsq.length > 1){
+	TABS.push("選擇右側綫路");
+}
+let tmpIndex;
+tmpIndex=1;
+tabsa.forEach(function(it){
+	TABS.push(it + tmpIndex);
+	tmpIndex = tmpIndex + 1;
+});
+tmpIndex=1;
+tabsq.forEach(function(it){
+	TABS.push(it + tmpIndex);
+	tmpIndex = tmpIndex + 1;
+});
+tabm3u8.forEach(function(it){
+	TABS.push(it);
+});
+log('xb6v TABS >>>>>>>>>>>>>>>>>>' + TABS);
 `,
 		lists:`js:
-  log(TABS);
-			pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-			LISTS = [];
-			TABS.forEach(function(tab) {
-				if (/磁力/.test(tab)) {
-					var d = pdfa(html, '.context&&td');
-					d = d.map(function(it) {
-						var title = pdfh(it, 'a&&Text');
-						var burl = pd(it, 'a&&href');
-						return title + '$' + burl
-					});
-					LISTS.push(d)
-				} 
-			});
+log(TABS);
+pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
+LISTS = [];
+let d = pdfa(html, 'div#post_content table tbody tr a');
+let lista = [];
+let listq = [];
+let listm = [];
+let liste = [];
+let listm3u8 = {};
+d.forEach(function(it){
+	let burl = pdfh(it, 'a&&href');
+	let title = pdfh(it, 'a&&Text');
+	log('xb6v title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
+	log('xb6v burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
+	let loopresult = title + '$' + burl;
+	if (burl.startsWith("https://www.aliyundrive.com/s/")){
+		if (true){
+		if (TABS.length==1){
+			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&confirm=0&url=" + encodeURIComponent(burl);
+		}else{
+			burl = "http://127.0.0.1:9978/proxy?do=ali&type=push&url=" + encodeURIComponent(burl);
+		}
+		}else{
+                        burl = "push://" + burl;
+                }
+		loopresult = title + '$' + burl;
+		lista.push(loopresult);
+	}else if (burl.startsWith("https://pan.quark.cn/s/")){
+		if (true){
+		if (TABS.length==1){
+			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&confirm=0&url=" + encodeURIComponent(burl);
+		}else{
+			burl = "http://127.0.0.1:9978/proxy?do=quark&type=push&url=" + encodeURIComponent(burl);
+		}
+		}else{
+                        burl = "push://" + burl;
+                }
+		loopresult = title + '$' + burl;
+		listq.push(loopresult);
+	}else if (burl.startsWith("magnet")){
+		listm.push(loopresult);
+	}else if (burl.startsWith("ed2k")){
+		liste.push(loopresult);
+	}
+});
+if (listm.length>0){
+	LISTS.push(listm);
+}
+if (liste.length>0){
+	LISTS.push(liste);
+}
+if (false && lista.length + listq.length > 1){
+	LISTS.push(["選擇右側綫路，或3秒後自動跳過$http://127.0.0.1:10079/delay/"]);
+}
+lista.forEach(function(it){
+	LISTS.push([it]);
+});
+listq.forEach(function(it){
+	LISTS.push([it]);
+});
+for ( const key in listm3u8 ){
+	if (listm3u8.hasOwnProperty(key)){
+		LISTS.push(listm3u8[key]);
+	}
+};
 `,
 
 	},
