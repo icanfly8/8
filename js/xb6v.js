@@ -5,6 +5,7 @@ var rule = {
 	url: '/fyclass/index_fypage.html?',
 	filter_url:'{{fl.class}}',
 	filter:{
+		"dianshiju":[{"key":"class","name":"类型","value":[{"n":"全部","v":""},{"n":"国剧","v":"/guoju"},{"n":"日韩剧","v":"/rihanju"},{"n":"欧美剧","v":"/oumeiju"}]}]
 	},
 	searchUrl: '/e/search/index.php#tempid=1&tbname=article&mid=1&dopost=search&submit=&keyborad=**;post',
 	searchable:2,
@@ -15,8 +16,8 @@ var rule = {
 		'Referer': 'http://www.xb6v.com/'
 	},
 	timeout:5000,
-	class_name:'电视剧&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&综艺',
-	class_url:'dianshiju&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&ZongYi',
+	class_name:'电视剧&国剧&日韩剧&欧美剧&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&综艺',
+	class_url:'dianshiju&dianshiju/guoju&dianshiju/rihanju&oumeiju&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&ZongYi',
 	play_parse:true,
 	play_json:[{
 		re:'*',
