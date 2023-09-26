@@ -1,8 +1,6 @@
 var rule = {
 	title:'6V新版[磁]',
 	host:'http://www.xb6v.com',
-	// host:'https://www.66s6.net',
-	// url: '/fyclass/index_fypage.html[/fyclass/index.html]',
 	url: '/fyclassfyfilter/index_fypage.html[/fyclassfyfilter/index.html]',
 	filter_url:'{{fl.class}}',
 	filter:{
@@ -29,7 +27,7 @@ var rule = {
 		"content": "#post_content&&p:eq(1)&&Text",
 		"tabs": `js:
   pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-			TABS = ["道长磁力"];
+			TABS = ["磁力"];
 			let tabs = pdfa(html, 'div#post_content table tbody tr a');
 			tabs.forEach((it) => {
 				TABS.push(pdfh(it, "body&&Text").replace('播放地址','道长在线').replace('（无插件 极速播放）','一').replace('（无需安装插件）','二'))
@@ -40,7 +38,7 @@ var rule = {
 			pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 			LISTS = [];
 			TABS.forEach(function(tab) {
-				if (/道长磁力/.test(tab)) {
+				if (/磁力/.test(tab)) {
 					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
