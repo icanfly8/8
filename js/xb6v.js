@@ -38,7 +38,7 @@ var rule = {
 			LISTS = [];
 			TABS.forEach(function(tab) {
 				if (/磁力/.test(tab)) {
-					var d = pdfa(html, '.context&&td');
+					var d = pdfa(html, 'div#post_content table tbody tr a');
 					d = d.map(function(it) {
 						var title = pdfh(it, 'a&&Text');
 						var burl = pd(it, 'a&&href');
