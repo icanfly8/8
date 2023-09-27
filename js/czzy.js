@@ -15,7 +15,7 @@ var rule={
         'User-Agent': 'MOBILE_UA',
         'Cookie': 'esc_search_captcha=1'
     },
-    class_name:'全部&豆瓣电影Top250&电影&电视剧&动画&国产剧&美剧&日剧&韩剧&海外剧&华语电影&美国电影&日本电影&韩国电影',
+    class_name:'全部&豆瓣电影Top250&电影&电视剧&动画&国产剧&美剧&日剧&韩剧&海外剧&华语电影&欧美电影&日本电影&韩国电影',
     class_url:'movie_bt&dbtop250&/movie_bt_series/dyy&/movie_bt_series/dianshiju&/movie_bt_series/dohua&/movie_bt_series/guochanju&/movie_bt_series/mj&/movie_bt_series/rj&/movie_bt_series/hj&/movie_bt_series/hwj&/movie_bt_series/huayudianying&/movie_bt_series/meiguodianying&/movie_bt_series/ribendianying&/movie_bt_series/hanguodianying',
     play_parse:true,
 
