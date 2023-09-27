@@ -1,8 +1,13 @@
 #YanG
 https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u
-
-#范明明•综合
+#Fanminming
 https://ghproxy.com/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/global.m3u
+
+
+
+
+
+
 #YueChan•综合
 https://ghproxy.com/https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u
 #Yoursmile•综合
