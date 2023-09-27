@@ -15,8 +15,8 @@ var rule= {
 	filter_def:{
 		1:{cateId:'1'},
 		2:{cateId:'2'},
-		4:{cateId:'4'},
-		3:{cateId:'3'}
+		3:{cateId:'3'},
+		4:{cateId:'4'}
 	},
     cate_exclude:'网址|演员|电影解说|体育',
     searchUrl:'/index.php/ajax/suggest?mid=1&wd=**&limit=50',
