@@ -15,8 +15,8 @@ var rule = {
 		'Referer': 'https://www.kuba222.com/'
 	},
 	timeout:5000,
-	class_name: '电视剧&4K&动作片&喜剧片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动漫',
-	class_url: '31&4K&5&6&7&8&9&10&11&16&4',
+	class_name: '电视剧&动作片&喜剧片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动漫&4K',
+	class_url: '31&5&6&7&8&9&10&11&16&4&4K',
 	play_parse:true,
 	play_json:[{
 		re:'*',
