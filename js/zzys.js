@@ -3,7 +3,6 @@ var rule={
     title:'子子影视',
     模板:'mxone5',
     host:'https://www.ziziys.com',
-    // url:'/list/fyclass/page/fypage.html',
     url:'/list/fyfilter/page/fypage.html',
     filterable:1,
     filter_url:'{{fl.cateId}}',
@@ -13,8 +12,8 @@ var rule={
       2:{cateId:'2'},
       3:{cateId:'3'}
     },
-    class_name:'电影&电视剧&动漫&动漫片&恐怖片&历史传记片&战争片&武侠古装&记录片&灾难片&音乐歌舞&国产剧&美剧&日韩剧&泰剧&国漫&日漫&欧美动漫',
-    class_url:'1&2&3&23&24&25&26&28&29&30&31&13&14&15&16&20&21&22',
+    class_name:'电影&电视剧&动漫',
+    class_url:'1&2&3',
     class_parse:'',
 	lazy:`js:
 		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
