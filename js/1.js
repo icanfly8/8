@@ -75,7 +75,7 @@ async function home(filter) {
             type_name: s.children[0].data,
         };
     });
-    const sortName = ['电影', '电视剧', '国产剧', '美剧', '韩剧', '日剧', '海外剧（其他）', '华语电影', '印度电影', '日本电影', '欧美电影', '韩国电影', '动画', '俄罗斯电影', '加拿大电影'];
+    const sortName = ['全部', '豆瓣电影Top250', '电影', '电视剧', '国产剧', '美剧', '韩剧', '日剧', '海外剧', '华语电影', '欧美电影', '日本电影', '韩国电影', '动画'];
     classes = _.sortBy(classes, (c) => {
         const index = sortName.indexOf(c.type_name);
         return index === -1 ? sortName.length : index;
