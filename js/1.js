@@ -13,8 +13,8 @@ var rule = {
     headers:{
         'User-Agent':'UC_UA',
     },
-    class_name:'全部&电影&电视剧&高分电影&动漫电影&香港电影&国产剧&欧美剧&韩剧&动漫&日剧',
-    class_url:'movie_bt&new-movie&tv-drama&high-movie&cartoon-movie&hongkong-movie&domestic-drama&american-drama&korean-drama&anime-drama&movie_bt/movie_bt_series/riju',
+    class_name:'全部&电影&电视剧&综艺&纪录片&高分电影&动漫电影&香港电影&国产剧&欧美剧&日剧&韩剧&动漫剧',
+    class_url:'movie_bt&new-movie&tv-drama&movie_bt/movie_bt_series/zongyi&movie_bt/movie_bt_series/documentary&high-movie&cartoon-movie&hongkong-movie&domestic-drama&american-drama&movie_bt/movie_bt_series/riju&korean-drama&anime-drama',
     play_parse:true,
     lazy:'',
     limit:6,
