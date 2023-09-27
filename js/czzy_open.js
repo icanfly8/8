@@ -39,12 +39,10 @@ async function request(reqUrl, referer, mth, data, hd) {
                 return await request(reqUrl);
             }
         }
-        // console.log(res.headers['set-cookie']);
     }
     return res.content;
 }
 
-// cfg = {skey: siteKey, ext: extend}
 async function init(cfg) {
     siteKey = cfg.skey;
     siteType = cfg.stype;
@@ -75,7 +73,7 @@ async function home(filter) {
             type_name: s.children[0].data,
         };
     });
-    const sortName = ['全部', '豆瓣电影Top250', '电影', '电视剧', '国产剧', '美剧', '韩剧', '日剧', '海外剧', '华语电影', '欧美电影', '日本电影', '韩国电影', '动画'];
+    const sortName = ['电影', '电视剧', '国产剧', '美剧', '日剧', '韩剧', '海外剧（其他）', '华语电影', '欧美电影', '日本电影', '韩国电影', '俄罗斯电影', '加拿大电影', '印度电影', '动画'];
     classes = _.sortBy(classes, (c) => {
         const index = sortName.indexOf(c.type_name);
         return index === -1 ? sortName.length : index;
