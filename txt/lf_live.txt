@@ -1,0 +1,12 @@
+#YanG
+https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u
+#Fanmingming
+https://ghproxy.com/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/global.m3u
+#YueChan
+https://ghproxy.com/https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u
+#Fantaiying
+https://agit.ai/fantaiying/0/raw/branch/main/tvlive.txt
+#Yoursmile
+https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt
+#Jun
+http://home.jundie.top:81/Cat/tv/live.txt
