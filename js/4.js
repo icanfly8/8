@@ -1,5 +1,5 @@
 // 自动从 地址发布页 获取&跳转url地址
-import { Crypto, load, _ } from './lib/cat.js';
+import { Crypto, load, _ } from 'assets://js/lib/cat.js';
 
 let key = '在线之家';
 let HOST = 'https://www.zxzj.site'; // 地址发布页
