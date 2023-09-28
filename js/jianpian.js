@@ -52,14 +52,14 @@ var rule = {
         tabs:`js:
             TABS = [];
             if (html.data.have_ftp_ur == 1) {
-                TABS.push("磁力")
+                TABS.push("p2p")
             }
         `,
         lists:`js:
             log(TABS);
             LISTS = [];
             TABS.forEach(function(tab) {
-                if (/磁力/.test(tab)) {
+                if (/p2p/.test(tab)) {
                     let ftp = html.data.new_ftp_list;
                     let d = ftp.map(function(it) {
                         return it.title + "$" + (/m3u8/.test(it.url) ? play_url + it.url : "tvbox-xg:" + it.url)
