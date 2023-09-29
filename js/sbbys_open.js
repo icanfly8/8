@@ -1,4 +1,4 @@
-import { Crypto, load, _ } from 'assets://js/lib/cat.js';
+import { Crypto, load, _ } from '../lib/cat.js';
 let key = "sbbys",
     url = "https://www.subaibaiys.com",
     siteKey = "",
