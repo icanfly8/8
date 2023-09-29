@@ -20,7 +20,7 @@ var rule = {
 	},
 	class_parse:'.stui-header__menu li:gt(0):lt(7);a&&Text;a&&href;/(\\d+).html',
 	cate_exclude:'即将上映',
-	tab_exclude:'夸克网盘|百度云盘',
+	tab_exclude:'夸克网盘|百度云盘|阿里云盘',
 	
 	lazy:`js:
                 var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
