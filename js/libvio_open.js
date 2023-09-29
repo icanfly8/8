@@ -1,4 +1,4 @@
-import { load, _ } from 'assets://js/lib/cat.js';
+import { load, _ } from '../lib/cat.js';
 
 var key = 'libvio';
 var HOST = 'https://libvio.app';
