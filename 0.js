@@ -1,5 +1,5 @@
 {
-/*"spider":"./jar/spider.jar",*/
+"spider":"./jar/spider.jar",
   
 "sites":[
 {"key":"1","name":"1","type":3,"api":"./lib/drpy2.min.js","ext":"./js/1.js"},
