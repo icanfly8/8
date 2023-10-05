@@ -366,8 +366,8 @@ var rule = {
             vod_pic: pic,
             type_name: typeName,
             vod_year: yy+mm+dd,
-            vod_area: 'bilidanmu',
-            vod_tags: 'mv',
+            //vod_area: 'bilidanmu',
+            //vod_tags: 'mv',
             vod_content: desc
         };
         let ja = jo.pages;
