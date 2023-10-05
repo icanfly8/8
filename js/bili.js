@@ -85,8 +85,9 @@ var rule = {
     headers:{
         "User-Agent":"PC_UA",
         "Referer": "https://www.bilibili.com",
+        "Cookie":"../txt/cookie.txt"
         //"Cookie":"$bili_cookie"
-        "Cookie":"https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/cookie.txt"
+        //"Cookie":"https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/cookie.txt"
     },
     timeout:5000,
     limit:8,
@@ -364,8 +365,8 @@ var rule = {
             vod_area: 'bilidanmu',
             // vod_remarks: remark,
             vod_tags: 'mv',
-            vod_director: up_name,
-            vod_actor: '▶' + stat.view,
+            // vod_director: up_name,
+            // vod_actor: '▶' + stat.view,
             vod_content: desc
         };
         let ja = jo.pages;
@@ -378,7 +379,7 @@ var rule = {
                 part + '$' + aid + '_' + cid
             )
         });
-        treeMap['B站'] = playurls.join('#');
+        treeMap['bili'] = playurls.join('#');
         let relatedData = JSON.parse(html).data.Related;
         playurls = [];
         relatedData.forEach(function(rd) {
@@ -389,7 +390,7 @@ var rule = {
                 title + '$' + aaid + '_' + ccid
             )
         });
-        treeMap['相关推荐'] = playurls.join('#');
+        treeMap['相关'] = playurls.join('#');
         vod.vod_play_from = Object.keys(treeMap).join("$$$");
         vod.vod_play_url = Object.values(treeMap).join("$$$");
         VOD = vod;
