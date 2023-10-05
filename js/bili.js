@@ -85,7 +85,8 @@ var rule = {
     headers:{
         "User-Agent":"PC_UA",
         "Referer": "https://www.bilibili.com",
-        "Cookie":"$bili_cookie"
+        //"Cookie":"$bili_cookie"
+        "Cookie":"https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/cookie.txt"
     },
     timeout:5000,
     limit:8,
