@@ -85,7 +85,7 @@ var rule = {
     headers:{
         "User-Agent":"PC_UA",
         "Referer": "https://www.bilibili.com",
-        "Cookie":""
+        "Cookie":"$bili_cookie"
     },
     timeout:5000,
     limit:8,
