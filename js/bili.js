@@ -8,7 +8,7 @@ var rule = {
     filterable: 1,
     filter_url: '&keyword={{fl.tid}}&page=fypage&duration={{fl.duration}}&order={{fl.order}}',
     filter_def:{
-        音乐:{tid:'音乐'},舞蹈:{tid:'舞蹈'},健身:{tid:'健身'},风景:{tid:'风景'}
+        音乐:{tid:'音乐'},舞蹈:{tid:'舞蹈'},健身:{tid:'健身'},风景:{tid:'风景'},电影:{tid:'电影'},电视剧:{tid:'电视剧'},综艺:{tid:'综艺'},纪录片:{tid:'纪录片'},动画:{tid:'动画'}
     },
     filter:{
         "音乐":[{"key":"order","name":"排序","value":[{"n":"综合排序","v":"0"},{"n":"最多点击","v":"click"},{"n":"最新发布","v":"pubdate"},{"n":"最多弹幕","v":"dm"},{"n":"最多收藏","v":"stow"}]},{"key":"duration","name":"时长","value":[{"n":"全部","v":"0"},{"n":"60分钟以上","v":"4"},{"n":"30~60分钟","v":"3"},{"n":"10~30分钟","v":"2"},{"n":"10分钟以下","v":"1"}]},{"key":"tid","name":"分类","value":[{"n":"全部","v":"音乐"},{"n":"歌曲","v":"歌曲"},{"n":"MV","v":"MV4K"},{"n":"演唱会","v":"演唱会4K"}]}],
