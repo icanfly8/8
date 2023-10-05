@@ -367,10 +367,7 @@ var rule = {
             type_name: typeName,
             vod_year: yy+mm+dd,
             vod_area: 'bilidanmu',
-            // vod_remarks: remark,
             vod_tags: 'mv',
-            // vod_director: up_name,
-            // vod_actor: '▶' + stat.view,
             vod_content: desc
         };
         let ja = jo.pages;
