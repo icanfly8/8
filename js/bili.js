@@ -271,7 +271,7 @@ var rule = {
                 play = ConvertNum(vod.play);
                 danmaku = vod.video_review;
             }
-            let remark = turnDHM(vod.duration) + ' ▶' + play;
+            let remark = turnDHM(vod.duration);
             videos.push({
                 vod_id: aid,
                 vod_name: title,
@@ -310,8 +310,6 @@ var rule = {
             vod_pic: pic,
             type_name: typeName,
             vod_year: yy+mm+dd,
-            //vod_area: 'bilidanmu',
-            //vod_tags: 'mv',
             vod_content: desc
         };
         let ja = jo.pages;
