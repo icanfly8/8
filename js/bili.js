@@ -383,7 +383,7 @@ var rule = {
                 part + '$' + aid + '_' + cid
             )
         });
-        treeMap['bili'] = playurls.join('#');
+        treeMap['Bili'] = playurls.join('#');
         let relatedData = JSON.parse(html).data.Related;
         playurls = [];
         relatedData.forEach(function(rd) {
