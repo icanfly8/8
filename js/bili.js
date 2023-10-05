@@ -76,8 +76,6 @@ var rule = {
         input = result
     `,
     double:false,
-    推荐:'*',
-    /*
     推荐:`js:
         function stripHtmlTag(src) {
             return src.replace(/<\\/?[^>]+(>|$)/g, '').replace(/&.{1,5};/g, '').replace(/\\s{2,}/g, ' ');
@@ -170,8 +168,6 @@ var rule = {
         });
         VODS = videos
     `,
-    
-    */
     一级:`js:
         function stripHtmlTag(src) {
             return src.replace(/<\\/?[^>]+(>|$)/g, '').replace(/&.{1,5};/g, '').replace(/\\s{2,}/g, ' ');
