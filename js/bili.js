@@ -3,8 +3,8 @@ var rule = {
     host:'https://api.bilibili.com',
     homeUrl:'/x/web-interface/ranking/v2?rid=0&type=origin',
     url:'/x/web-interface/search/type?search_type=videofyfilter',
-    class_name:'音乐&舞蹈&健身&风景',
-    class_url:'音乐&舞蹈&健身&风景',
+    class_name:'音乐&舞蹈&健身&风景&电影&电视剧&综艺&纪录片&动画',
+    class_url:'音乐&舞蹈&健身&风景&电影&电视剧&综艺&纪录片&动画',
     filterable: 1,
     filter_url: '&keyword={{fl.tid}}&page=fypage&duration={{fl.duration}}&order={{fl.order}}',
     filter_def:{
