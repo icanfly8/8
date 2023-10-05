@@ -86,8 +86,8 @@ var rule = {
         "User-Agent":"PC_UA",
         "Referer": "https://www.bilibili.com",
         //"Cookie":"../txt/cookie.txt"
-        "Cookie":"$bili_cookie"
-        //"Cookie":"https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/cookie.txt"
+        //"Cookie":"$bili_cookie"
+        "Cookie":"https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/cookie.txt"
     },
     timeout:5000,
     limit:8,
