@@ -85,8 +85,8 @@ var rule = {
     headers:{
         "User-Agent":"PC_UA",
         "Referer": "https://www.bilibili.com",
-        "Cookie":"../txt/cookie.txt"
-        //"Cookie":"$bili_cookie"
+        //"Cookie":"../txt/cookie.txt"
+        "Cookie":"$bili_cookie"
         //"Cookie":"https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/cookie.txt"
     },
     timeout:5000,
@@ -132,6 +132,8 @@ var rule = {
         input = result
     `,
     double:false,
+    推荐:'*',
+    /*
     推荐:`js:
         function stripHtmlTag(src) {
             return src.replace(/<\\/?[^>]+(>|$)/g, '').replace(/&.{1,5};/g, '').replace(/\\s{2,}/g, ' ');
@@ -224,6 +226,8 @@ var rule = {
         });
         VODS = videos
     `,
+    */
+    
     一级:`js:
         function stripHtmlTag(src) {
             return src.replace(/<\\/?[^>]+(>|$)/g, '').replace(/&.{1,5};/g, '').replace(/\\s{2,}/g, ' ');
