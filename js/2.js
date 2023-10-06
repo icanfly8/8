@@ -33,6 +33,6 @@ var rule = {
         }
     `,
 	searchUrl:'/index.php/ajax/suggest?mid=1&wd=**&limit=50',
-	detailUrl:'/voddetail/fyid.html', //非必填,二级详情拼接链接
+	detailUrl:'/voddetail/fyid.html',
 	搜索:'json:list;name;pic;;id',
 }
