@@ -14,8 +14,8 @@ var rule = {
         'User-Agent':'UC_UA'
     },
     timeout:5000,
-    class_name:'全部&1&电影&电视剧&国产剧&美剧&日韩剧',
-    class_url:'movie_bt&movie&new-movie&dsj&zgjun&meiju&jpsrtv',
+    class_name:'全部&电视剧&国产剧&美剧&日韩剧',
+    class_url:'movie_bt&dsj&zgjun&meiju&jpsrtv',
     play_parse:true,
     lazy:'',
     limit:5,
