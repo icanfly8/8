@@ -1,5 +1,5 @@
 var rule={
-    title:'骚火电影',
+    title:'shdy',
     host:'http://shapp.us',
     hostJs:'print(HOST);let html=request(HOST,{headers:{"User-Agent":PC_UA}});let src=jsp.pdfh(html,"a:eq(2)&&href");print(src);HOST=src',
     url:'/list/fyfilter-fypage.html',
