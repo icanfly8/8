@@ -1,5 +1,5 @@
 var rule = {
-    title:'两个BT',
+    title:'bttwo',
     host:'https://www.bttwo.net',
     url:'/fyclassfyfilter',
 	filterable:1,
