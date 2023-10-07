@@ -144,7 +144,7 @@ var rule = {
             if (img.startsWith('//')) {
                 img = 'https:' + img;
             }
-            let remark = turnDHM(vod.duration) + ' ▶' + ConvertNum(vod.stat.view) + ' 🆙' + vod.owner.name;
+            let remark = turnDHM(vod.duration);
             videos.push({
                 vod_id: aid,
                 vod_name: title,
@@ -247,7 +247,7 @@ var rule = {
                 play = ConvertNum(vod.play);
                 danmaku = vod.video_review;
             }
-            let remark = turnDHM(vod.duration) + ' ▶' + play + ' 💬' + danmaku;
+            let remark = turnDHM(vod.duration);
             videos.push({
                 vod_id: aid,
                 vod_name: title,
@@ -287,8 +287,6 @@ var rule = {
             type_name: typeName,
             vod_year: yy+mm+dd,
             vod_tags: 'mv',
-            vod_director: '🆙 ' + up_name + '　👥 ' + up_info.follower + '　' + relation,
-            vod_actor: '▶' + stat.view + '　' + '💬' + stat.danmaku + '　' + '👍' + stat.like + '　' + '💰' + stat.coin + '　' + '⭐' + stat.favorite,
             vod_content: desc
         };
         let ja = jo.pages;
