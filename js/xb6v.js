@@ -15,8 +15,8 @@ var rule = {
 		'Referer': 'http://www.xb6v.com/'
 	},
 	timeout:5000,
-	class_name:'国剧&日韩剧&欧美剧&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&综艺',
-	class_url:'dianshiju/guoju&dianshiju/rihanju&dianshiju/oumeiju&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&ZongYi',
+	class_name:'1&2&国剧&日韩剧&欧美剧&喜剧片&动作片&爱情片&科幻片&恐怖片&剧情片&战争片&纪录片&动画片&综艺',
+	class_url:'dianying&dianshiju&dianshiju/guoju&dianshiju/rihanju&dianshiju/oumeiju&xijupian&dongzuopian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&jilupian&donghuapian&ZongYi',
 	play_parse:true,
 	play_json:[{
 		re:'*',
