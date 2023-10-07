@@ -144,7 +144,7 @@ var rule = {
             if (img.startsWith('//')) {
                 img = 'https:' + img;
             }
-            let remark = turnDHM(vod.duration) + ' ▶' + ConvertNum(vod.stat.view) + ' 🆙' + vod.owner.name;
+            let remark = turnDHM(vod.duration);
             videos.push({
                 vod_id: aid,
                 vod_name: title,
@@ -154,7 +154,6 @@ var rule = {
         });
         VODS = videos
     `,
-    // 一级:'js:let html=request(input);let msg=JSON.parse(html).message;function title_rep(title){if(/keyword/.test(title)){title=title.replace(\'<em class="keyword">\',"").replace("</em>","").replace("&quot;","\'");log("名称替换👉"+title)};return title}if(msg!=="0"){VODS=[{vod_name:KEY+"➢"+msg,vod_id:"no_data",vod_remarks:"别点,缺少bili_cookie",vod_pic:"https://ghproxy.net/https://raw.githubusercontent.com/hjdhnx/dr_py/main/404.jpg"}]}else{let videos=[];let vodList=JSON.parse(html).data.result;vodList.forEach(function(vod){let aid=vod["aid"];let title=vod["title"].trim();title=title_rep(title);title=title_rep(title);title=title_rep(title);title=title_rep(title);let img="https:"+vod["pic"];let remark=vod["duration"];videos.push({vod_id:aid,vod_name:title,vod_pic:img,vod_remarks:remark})});VODS=videos}',
     一级:`js:
         function stripHtmlTag(src) {
             return src.replace(/<\\/?[^>]+(>|$)/g, '').replace(/&.{1,5};/g, '').replace(/\\s{2,}/g, ' ');
@@ -248,7 +247,7 @@ var rule = {
                 play = ConvertNum(vod.play);
                 danmaku = vod.video_review;
             }
-            let remark = turnDHM(vod.duration) + ' ▶' + play + ' 💬' + danmaku;
+            let remark = turnDHM(vod.duration);
             videos.push({
                 vod_id: aid,
                 vod_name: title,
@@ -289,10 +288,7 @@ var rule = {
             type_name: typeName,
             vod_year: yy+mm+dd,
             vod_area: 'bilidanmu',
-            // vod_remarks: remark,
             vod_tags: 'mv',
-            vod_director: '🆙 ' + up_name + '　👥 ' + up_info.follower + '　' + relation,
-            vod_actor: '▶' + stat.view + '　' + '💬' + stat.danmaku + '　' + '👍' + stat.like + '　' + '💰' + stat.coin + '　' + '⭐' + stat.favorite,
             vod_content: desc
         };
         let ja = jo.pages;
@@ -321,7 +317,6 @@ var rule = {
         vod.vod_play_url = Object.values(treeMap).join("$$$");
         VOD = vod;
     `,
-    // 搜索:'*',
     搜索:`js:
         let html = request(input);
         function stripHtmlTag(src) {
