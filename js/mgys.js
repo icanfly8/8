@@ -2,7 +2,7 @@ muban.首图2.二级.title = 'h1&&Text;.data:eq(0)&&Text'
 muban.首图2.二级.desc = '.data:eq(4)&&Text;;;.data:eq(1)&&Text;.data:eq(2)&&Text'
 muban.首图2.二级.tabs = '.stui-pannel__head h3'
 var rule = {
-    title:'蘑菇',
+    title:'mgys',
     模板:'首图2',
     host:'https://www.moguys.xyz',
     url:'/vodshow/fyclassfyfilter.html',
@@ -33,6 +33,6 @@ var rule = {
         }
     `,
 	searchUrl:'/index.php/ajax/suggest?mid=1&wd=**&limit=50',
-	detailUrl:'/voddetail/fyid.html', //非必填,二级详情拼接链接
+	detailUrl:'/voddetail/fyid.html',
 	搜索:'json:list;name;pic;;id',
 }
