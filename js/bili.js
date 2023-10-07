@@ -23,7 +23,7 @@ var rule = {
     headers:{
         "User-Agent":"PC_UA",
         "Referer": "https://www.bilibili.com",
-        "Cookie": "https://ghproxy.com/https://raw.githubusercontent.com/zjux/x/main/txt/cookie.txt"
+        "Cookie": "https://ghproxy.com/https://raw.githubusercontent.com/zjux/x/main/txt/bili.txt"
     },
     timeout:5000,
     limit:8,
