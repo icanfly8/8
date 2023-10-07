@@ -1,29 +1,7 @@
-/**
- * 已知问题：
-    * [推荐]页面：'雷电模拟器'播放部份影片会出错，'播放器'改成'ijk' & '解码方式'改成'软解'，即可正常播放
- * 影视TV 弹幕支持
-    * https://t.me/fongmi_offical/
-    * https://github.com/FongMi/Release/tree/main/apk
- * 皮皮虾DMBox 弹幕支持
-    * 设置 > 窗口预览 > 开启
-    * https://t.me/pipixiawerun
-    * vod_area:'bilidanmu'
- * Cookie设置
-    * Cookie获取方法 https://ghproxy.net/https://raw.githubusercontent.com/UndCover/PyramidStore/main/list.md
- * Cookie设置方法1: DR-PY 后台管理界面
-    * CMS后台管理 > 设置中心 > 环境变量 > {"bili_cookie":"XXXXXXX","vmid":"XXXXXX"} > 保存
- * Cookie设置方法2: 手动替换Cookie
-    * 底下代码 headers的
-    * "Cookie":"$bili_cookie"
-    * 手动替换为
-    * "Cookie":"将获取的Cookie黏贴在这"
- */
-
 var rule = {
-    title:'我的哔哩',
+    title:'bili',
     host:'https://api.bilibili.com',
-    // homeUrl:'/x/web-interface/search/type?search_type=video&keyword=小姐姐4K&page=1',
-    homeUrl:'/x/web-interface/ranking/v2?rid=0&type=origin', // 排行 > 排行榜 > 原创
+    homeUrl:'/x/web-interface/ranking/v2?rid=0&type=origin',
     url:'/x/web-interface/search/type?search_type=videofyfilter',
     class_name:'推荐&经典无损音乐合集&帕梅拉&太极拳&健身&舞蹈&音乐&歌曲&MV&演唱会&白噪音&知名UP主&说案&解说&演讲&时事&探索发现&纪录片&平面设计教学&软件教程&实用教程&旅游&风景&食谱&美食&搞笑&球星&动物世界&相声小品&戏曲&儿童&小姐姐&热门&旅行探险',
     class_url:'推荐&经典无损音乐合集&帕梅拉&太极拳&健身&舞蹈&音乐&歌曲&MV4K&演唱会4K&白噪音4K&知名UP主&说案&解说&演讲&时事&探索发现超清&纪录片超清&平面设计教学&软件教程&实用教程&旅游&风景4K&食谱&美食超清&搞笑&球星&动物世界超清&相声小品&戏曲&儿童&小姐姐4K&热门&旅行探险',
@@ -100,16 +78,13 @@ var rule = {
         "热门":[{"key":"order","name":"排序","value":[{"n":"综合排序","v":"0"},{"n":"最多点击","v":"click"},{"n":"最新发布","v":"pubdate"},{"n":"最多弹幕","v":"dm"},{"n":"最多收藏","v":"stow"}]},{"key":"tid","name":"分类","value":[{"n":"全部","v":"热门"},{"n":"刀郎","v":"刀郎"},{"n":"罗刹海市","v":"罗刹海市"},{"n":"狂飙","v":"狂飙"},{"n":"淄博烧烤","v":"淄博烧烤"},{"n":"原神","v":"原神"},{"n":"漫长的季节","v":"漫长的季节"},{"n":"AI","v":"AI"},{"n":"俄乌","v":"俄乌"},{"n":"ChatGPT","v":"ChatGPT"},{"n":"重启人生","v":"重启人生"},{"n":"棋手战鹰","v":"棋手战鹰"},{"n":"中国奇谭","v":"中国奇谭"},{"n":"三体","v":"三体"},{"n":"刘慈欣","v":"刘慈欣"},{"n":"鬼吹灯","v":"鬼吹灯"},{"n":"天下霸唱","v":"天下霸唱"}]},{"key":"duration","name":"时长","value":[{"n":"全部","v":"0"},{"n":"60分钟以上","v":"4"},{"n":"30~60分钟","v":"3"},{"n":"10~30分钟","v":"2"},{"n":"10分钟以下","v":"1"}]}],
         "旅行探险":[{"key":"order","name":"排序","value":[{"n":"综合排序","v":"0"},{"n":"最多点击","v":"click"},{"n":"最新发布","v":"pubdate"},{"n":"最多弹幕","v":"dm"},{"n":"最多收藏","v":"stow"}]},{"key":"tid","name":"分类","value":[{"n":"全部","v":"旅行探险"},{"n":"摩旅","v":"摩托车旅游"},{"n":"骑行","v":"骑行旅游"},{"n":"徒步旅游","v":"徒步旅游"},{"n":"自驾旅游","v":"自驾旅游"},{"n":"洞穴探险","v":"洞穴探险"},{"n":"荒野求生","v":"荒野求生"},{"n":"凶宅探险","v":"凶宅探险"},{"n":"灵异探险","v":"灵异探险"},{"n":"户外攀岩","v":"户外攀岩"},{"n":"高空攀爬","v":"高空攀爬"},{"n":"潜水探险","v":"潜水探险"},{"n":"翼装飞行","v":"翼装飞行"},{"n":"极限运动","v":"极限运动"},{"n":"速降","v":"速降"},{"n":"高空跑酷","v":"高空跑酷"},{"n":"冲浪","v":"冲浪"}]},{"key":"duration","name":"时长","value":[{"n":"全部","v":"0"},{"n":"60分钟以上","v":"4"},{"n":"30~60分钟","v":"3"},{"n":"10~30分钟","v":"2"},{"n":"10分钟以下","v":"1"}]}]
     },
-    // detailUrl:'/x/web-interface/view?aid=fyid',//二级详情拼接链接(json格式用)
-    detailUrl:'/x/web-interface/view/detail?aid=fyid',//二级详情拼接链接(json格式用)
+    detailUrl:'/x/web-interface/view/detail?aid=fyid',
     searchUrl:'/x/web-interface/search/type?search_type=video&keyword=**&page=fypage',
     searchable:2,
     quickSearch:0,
     headers:{
         "User-Agent":"PC_UA",
         "Referer": "https://www.bilibili.com",
-        // "Cookie":"$bili_cookie"
-        // "Cookie":"https://ghproxy.net/https://github.com/FongMi/CatVodSpider/raw/main/txt/cookie.txt"
         "Cookie":"https://ghproxy.net/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/cookie.txt"
     },
     timeout:5000,
@@ -481,5 +456,4 @@ var rule = {
         });
         VODS = videos
     `,
-    // 预处理:'if(rule_fetch_params.headers.Cookie.startsWith("http")){rule_fetch_params.headers.Cookie=fetch(rule_fetch_params.headers.Cookie);setItem(RULE_CK,cookie)};log(rule_fetch_params.headers.Cookie)',
 }
