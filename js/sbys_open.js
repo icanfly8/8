@@ -1,5 +1,5 @@
 import { Crypto, load, _ } from 'assets://js/lib/cat.js';
-let key = "sbbys",
+let key = "sbys",
     url = "https://www.subaibaiys.com",
     siteKey = "",
     siteType = 0;
