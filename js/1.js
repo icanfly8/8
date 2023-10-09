@@ -1,6 +1,5 @@
-// 无搜索功能
 import { _ } from 'assets://js/lib/cat.js';
-let key = '视聚场';
+let key = 'cntv';
 let HOST = 'http://api.cntv.cn';
 let siteKey = '';
 let siteType = 0;
@@ -76,7 +75,7 @@ async function detail(id) {
         vod_id: id,
         vod_remarks: '',
     };
-    const playlist = ['点击播放' + '$' + 'https://hls.cntv.myhwcdn.cn/asp/hls/2000/0303000a/3/default/' + id + '/2000.m3u8'];
+    const playlist = ['播放' + '$' + 'https://hls.cntv.myhwcdn.cn/asp/hls/2000/0303000a/3/default/' + id + '/2000.m3u8'];
     vod.vod_play_from = key;
     vod.vod_play_url = playlist.join('#');
     return JSON.stringify({
@@ -85,7 +84,6 @@ async function detail(id) {
 }
 
 async function play(flag, id, flags) {
-    // console.debug('视聚场 id =====>' + id); // js_debug.log
     return JSON.stringify({
         parse: 0,
         url: id,
